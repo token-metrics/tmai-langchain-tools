@@ -35,7 +35,10 @@ class TMBaseTool(BaseTool):
             Response: The API response
         """
         url = f"{self.client.base_url}{path}"
-        headers = {"Authorization": f"Bearer {self.client.api_key}"}
+        headers = {
+            "Authorization": f"Bearer {self.client.api_key}",
+            "x-integration": "langchain"
+        }
         response = requests.get(url, headers=headers, params=params)
         response.raise_for_status()
         return response

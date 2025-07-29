@@ -39,7 +39,8 @@ class BaseEndpoint:
         url = f"{self.base_url}/{endpoint}"
         headers = {
             "accept": "application/json",
-            "x-api-key": self.client.api_key
+            "x-api-key": self.client.api_key,
+            "x-integration": "langchain"
         }
         
         # Log request details
