@@ -127,8 +127,8 @@ jobs:
         id: sonarqube-quality-gate
         timeout-minutes: 5
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_APP }}
-          SONAR_HOST_URL: http://sonarqube.tokenmetrics.com
+          SONAR_TOKEN: ${{ secrets[matrix.instance.token] }}
+          SONAR_HOST_URL: ${{ matrix.instance.url }}
 
   security-summary:
     name: Security Summary
